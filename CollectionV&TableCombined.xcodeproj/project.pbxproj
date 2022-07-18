@@ -15,6 +15,8 @@
 		DEEE13F3288585B20067C925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEEE13F1288585B20067C925 /* LaunchScreen.storyboard */; };
 		DEEE13FE288586C60067C925 /* ElementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE13FD288586C60067C925 /* ElementCollectionViewCell.swift */; };
 		DEEE140028858AF60067C925 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE13FF28858AF60067C925 /* ElementTableViewCell.swift */; };
+		DEEE1403288591D90067C925 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE1402288591D80067C925 /* Extensions.swift */; };
+		DEEE1406288592980067C925 /* RickMorty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE1405288592980067C925 /* RickMorty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		DEEE13F4288585B20067C925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEEE13FD288586C60067C925 /* ElementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEEE13FF28858AF60067C925 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
+		DEEE1402288591D80067C925 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DEEE1405288592980067C925 /* RickMorty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMorty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		DEEE13E5288585B00067C925 /* CollectionV&TableCombined */ = {
 			isa = PBXGroup;
 			children = (
+				DEEE1404288592830067C925 /* Model */,
+				DEEE1401288591CE0067C925 /* Extensions */,
 				DEEE13FB288586B30067C925 /* Controller */,
 				DEEE13FA288585CE0067C925 /* Resources */,
 				DEEE13EC288585B00067C925 /* Main.storyboard */,
@@ -95,6 +101,22 @@
 				DEEE13FF28858AF60067C925 /* ElementTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DEEE1401288591CE0067C925 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DEEE1402288591D80067C925 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DEEE1404288592830067C925 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEEE1405288592980067C925 /* RickMorty.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +191,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEEE140028858AF60067C925 /* ElementTableViewCell.swift in Sources */,
+				DEEE1403288591D90067C925 /* Extensions.swift in Sources */,
+				DEEE1406288592980067C925 /* RickMorty.swift in Sources */,
 				DEEE13EB288585B00067C925 /* HomeViewController.swift in Sources */,
 				DEEE13E7288585B00067C925 /* AppDelegate.swift in Sources */,
 				DEEE13E9288585B00067C925 /* SceneDelegate.swift in Sources */,

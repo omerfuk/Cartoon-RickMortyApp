@@ -9,15 +9,18 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var characters:[Characters] = []
+    
     private var collectionView: UICollectionView?
     private var tableView: UITableView?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureCollectionView()
         configureTableView()
-        
+        fetchCharacters()
         
         
 
@@ -30,6 +33,35 @@ class HomeViewController: UIViewController {
         collectionView?.frame = CGRect(x: 5, y: 50, width: view.frame.size.width - 10, height: 200)
         tableView?.frame = CGRect(x: 10, y: 300, width: view.frame.size.width - 20, height: view.frame.size.height - 300)
     }
+    
+    func fetchCharacters(){
+        
+        guard let url = URL(string: "https://rickandmortyapi.com/api/character") else {return}
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            guard let data = data, error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            print(data)
+            
+            do{
+                let characterList = try JSONDecoder().decode(RickMorty.self, from: data)
+                DispatchQueue.main.async {
+                    self.characters = characterList.results
+                    self.tableView?.reloadData()
+                    
+                }
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+            
+        }
+        .resume()
+    }
+    
     
     func configureTableView() {
         
@@ -90,13 +122,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     //TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        
+        return characters.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ElementTableViewCell.identifier, for: indexPath) as! ElementTableViewCell
-        cell.textLabel?.text = "Hello World"
+        
+        cell.configureImageView(imageURL: characters[indexPath.row].image)
+        cell.configureLabel(text: characters[indexPath.row].name)
         return cell
     }
     

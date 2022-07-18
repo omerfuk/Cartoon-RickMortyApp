@@ -83,4 +83,8 @@ class ElementCollectionViewCell: UICollectionViewCell {
         
         myLabel.text = text
     }
+    
+    func setImageOfCellImage(imageURL: String){
+        myImageView.downloaded(from: imageURL)
+    }
 }

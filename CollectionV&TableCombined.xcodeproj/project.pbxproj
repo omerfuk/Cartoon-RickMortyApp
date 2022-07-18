@@ -16,9 +16,11 @@
 		DEEE140028858AF60067C925 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE13FF28858AF60067C925 /* ElementTableViewCell.swift */; };
 		DEEE1403288591D90067C925 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE1402288591D80067C925 /* Extensions.swift */; };
 		DEEE1406288592980067C925 /* RickMorty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE1405288592980067C925 /* RickMorty.swift */; };
-		DEEE140828859C0D0067C925 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE140728859C0D0067C925 /* WebService.swift */; };
+		DEEE140828859C0D0067C925 /* RickMortyWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEE140728859C0D0067C925 /* RickMortyWebService.swift */; };
 		DEFE5A782885E604009296C2 /* TableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE5A772885E604009296C2 /* TableDetailViewController.swift */; };
 		DEFE5A7A2885E60C009296C2 /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE5A792885E60C009296C2 /* CollectionDetailViewController.swift */; };
+		DEFE5A7C2885F19E009296C2 /* Cartoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE5A7B2885F19E009296C2 /* Cartoon.swift */; };
+		DEFE5A7F2885F1B0009296C2 /* CartoonWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE5A7E2885F1B0009296C2 /* CartoonWebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +35,11 @@
 		DEEE13FF28858AF60067C925 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
 		DEEE1402288591D80067C925 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DEEE1405288592980067C925 /* RickMorty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMorty.swift; sourceTree = "<group>"; };
-		DEEE140728859C0D0067C925 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		DEEE140728859C0D0067C925 /* RickMortyWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyWebService.swift; sourceTree = "<group>"; };
 		DEFE5A772885E604009296C2 /* TableDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDetailViewController.swift; sourceTree = "<group>"; };
 		DEFE5A792885E60C009296C2 /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
+		DEFE5A7B2885F19E009296C2 /* Cartoon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cartoon.swift; sourceTree = "<group>"; };
+		DEFE5A7E2885F1B0009296C2 /* CartoonWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartoonWebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		DEEE13E5288585B00067C925 /* CollectionV&TableCombined */ = {
 			isa = PBXGroup;
 			children = (
+				DEFE5A7D2885F1A1009296C2 /* Services */,
 				DEEE1404288592830067C925 /* Model */,
 				DEEE1401288591CE0067C925 /* Extensions */,
 				DEEE13FB288586B30067C925 /* Controller */,
@@ -120,9 +125,18 @@
 			isa = PBXGroup;
 			children = (
 				DEEE1405288592980067C925 /* RickMorty.swift */,
-				DEEE140728859C0D0067C925 /* WebService.swift */,
+				DEFE5A7B2885F19E009296C2 /* Cartoon.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DEFE5A7D2885F1A1009296C2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DEEE140728859C0D0067C925 /* RickMortyWebService.swift */,
+				DEFE5A7E2885F1B0009296C2 /* CartoonWebService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,11 +209,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEFE5A7C2885F19E009296C2 /* Cartoon.swift in Sources */,
 				DEEE140028858AF60067C925 /* ElementTableViewCell.swift in Sources */,
 				DEFE5A7A2885E60C009296C2 /* CollectionDetailViewController.swift in Sources */,
+				DEFE5A7F2885F1B0009296C2 /* CartoonWebService.swift in Sources */,
 				DEEE1403288591D90067C925 /* Extensions.swift in Sources */,
 				DEFE5A782885E604009296C2 /* TableDetailViewController.swift in Sources */,
-				DEEE140828859C0D0067C925 /* WebService.swift in Sources */,
+				DEEE140828859C0D0067C925 /* RickMortyWebService.swift in Sources */,
 				DEEE1406288592980067C925 /* RickMorty.swift in Sources */,
 				DEEE13EB288585B00067C925 /* HomeViewController.swift in Sources */,
 				DEEE13E7288585B00067C925 /* AppDelegate.swift in Sources */,

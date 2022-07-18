@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var characters:[Characters] = []
+    var cartoons: [Cartoon] = []
     
     private var collectionView: UICollectionView?
     private var tableView: UITableView?
@@ -26,6 +27,18 @@ class HomeViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
+                    
+                }
+            }
+        }
+        
+        fetchCartoons { cartoons in
+            if let cartoons = cartoons {
+                self.cartoons = cartoons
+                
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                    
                 }
             }
         }
@@ -88,15 +101,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     //CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return cartoons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElementCollectionViewCell.identifier, for: indexPath) as! ElementCollectionViewCell
-        cell.setTextOfLabel(text: "Welcome")
+        cell.configureImageView(imageURL: cartoons[indexPath.row].image)
+        cell.setTextOfLabel(text: cartoons[indexPath.row].title)
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let collectionDetailController = CollectionDetailViewController()
+        collectionDetailController.cartoons = cartoons[(collectionView.indexPathsForSelectedItems?.startIndex)!]
+        navigationController?.pushViewController(collectionDetailController, animated: true)
+    }
 
 }
 

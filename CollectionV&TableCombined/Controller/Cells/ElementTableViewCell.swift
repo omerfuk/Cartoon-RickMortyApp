@@ -65,6 +65,8 @@ class ElementTableViewCell: UITableViewCell {
     
     func configureImageView(imageURL:String){
         contentView.addSubview(myImageView)
+        myImageView.layer.masksToBounds = true
+        myImageView.layer.cornerRadius = 15.0
         myImageView.downloaded(from: imageURL)
         
     }

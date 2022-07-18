@@ -17,4 +17,6 @@ struct Characters: Codable {
     var id: Int
     var name:String
     var image: String
+    var status: String
+    var gender: String
 }

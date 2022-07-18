@@ -20,7 +20,15 @@ class HomeViewController: UIViewController {
         
         configureCollectionView()
         configureTableView()
-        fetchCharacters()
+        fetchCharacters { characters in
+            if let characters = characters {
+                self.characters = characters
+                
+                DispatchQueue.main.async {
+                    self.tableView?.reloadData()
+                }
+            }
+        }
         
         
 
@@ -34,33 +42,7 @@ class HomeViewController: UIViewController {
         tableView?.frame = CGRect(x: 10, y: 300, width: view.frame.size.width - 20, height: view.frame.size.height - 300)
     }
     
-    func fetchCharacters(){
-        
-        guard let url = URL(string: "https://rickandmortyapi.com/api/character") else {return}
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            guard let data = data, error == nil else {
-                print(error!.localizedDescription)
-                return
-            }
-            print(data)
-            
-            do{
-                let characterList = try JSONDecoder().decode(RickMorty.self, from: data)
-                DispatchQueue.main.async {
-                    self.characters = characterList.results
-                    self.tableView?.reloadData()
-                    
-                }
-            }
-            catch{
-                print(error.localizedDescription)
-            }
-            
-        }
-        .resume()
-    }
+    
     
     
     func configureTableView() {
@@ -138,4 +120,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tableDetailController = TableDetailViewController()
+        tableDetailController.characters = characters[(tableView.indexPathForSelectedRow?.row)!]
+        navigationController?.pushViewController(tableDetailController, animated: true)
+    }
+    
+
 }

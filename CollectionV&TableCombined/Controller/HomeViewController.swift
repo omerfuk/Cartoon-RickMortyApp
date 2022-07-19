@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .systemBackground
         configureCollectionView()
         configureTableView()
         fetchCharacters { characters in
@@ -113,7 +113,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let collectionDetailController = CollectionDetailViewController()
-        collectionDetailController.cartoons = cartoons[(collectionView.indexPathsForSelectedItems?.startIndex)!]
+        collectionDetailController.cartoons = cartoons[indexPath.item]
         navigationController?.pushViewController(collectionDetailController, animated: true)
     }
 
@@ -142,7 +142,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tableDetailController = TableDetailViewController()
-        tableDetailController.characters = characters[(tableView.indexPathForSelectedRow?.row)!]
+        tableDetailController.characters = characters[indexPath.row]
         navigationController?.pushViewController(tableDetailController, animated: true)
     }
     

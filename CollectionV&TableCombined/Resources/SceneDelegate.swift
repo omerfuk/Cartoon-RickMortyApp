@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let window = UIWindow(windowScene: windowScene)
                 
                 /// 3. Create a view hierarchy programmatically
-                let viewController = HomeViewController()
+                let viewController = WelcomeViewController()
                 viewController.view.backgroundColor = .systemBackground
                 let navigation = UINavigationController(rootViewController: viewController)
                 
